@@ -101,5 +101,5 @@ module.exports = function(grunt) {
         'watch'
     ]);
 
-    grunt.registerTask('default' , ['jshint', 'uglify']);
+    grunt.registerTask('default' , ['jshint', 'uglify', 'sass']);
 }

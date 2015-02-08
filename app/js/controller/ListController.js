@@ -13,11 +13,8 @@ app.controller('ListController', ['$scope', '$http', 'ProgramFactory', "filterFi
                 var sub_key = j;
 
                 if(sub_key != 'program' && sub_key != 'title' && sub_key != 'created') {
-
-
                     delete data[i][sub_key];
                     $scope.programs = data;
-
                 }
 
             }
