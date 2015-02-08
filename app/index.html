@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body ng-app="ListApp">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+
+
+        <section ng-controller="ListController" class="col-md-12">
+            <form action="#" class="row">
+                <div class="form-group">
+                    <div class="input-group col-md-4">
+                        <input type="text" class="form-control" placeholder="{{placeholder}}" ng-model="searchProgram">
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-bordered table-striped">
+                <colgroup>
+                    <col width="33.333%">
+                    <col width="33.333%">
+                    <col width="33.333%">
+                </colgroup>
+
+                <thead>
+                <tr>
+                    <td>
+                        <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+                            Titre
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" ng-click="sortType = 'program'; sortReverse = !sortReverse">
+                            Programme
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" ng-click="sortType = 'created'; sortReverse = !sortReverse">
+                            Date de création
+                        </a>
+                    </td>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="program in programs | orderBy:sortType:sortReverse | filter:searchProgram | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                    <td>{{ program.title }}</td>
+                    <td>{{ program.program }}</td>
+                    <td>{{ program.created |date : 'dd MM yyyy H:mm:ss'}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+
+            <pagination data-boundary-links="true" data-num-pages="noOfPages" data-current-page="currentPage" max-size="maxSize" class="pagination-small" data-previous-text="&laquo;" data-next-text="&raquo;"></pagination>
+
+        </section>
+
+
+
+
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <script src="min.js"></script>
+
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
