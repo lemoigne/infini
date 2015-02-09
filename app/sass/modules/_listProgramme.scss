@@ -1,14 +1,3 @@
-.listProgramme {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li {
-        margin-bottom: 20px;
-        overflow: hidden;
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-    }
+.programs {
+    margin: 20px 0;
 }
-
