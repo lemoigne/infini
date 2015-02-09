@@ -21,7 +21,8 @@ module.exports = function(grunt) {
             dist: {
                 files: {
 
-                    'app/min.js': ['app/js/vendor/modernizr-2.6.2.min.js', 'app/js/vendor/angular.min.js', 'app/js/vendor/angular-ui-bootstrap.js', 'app/js/**/*.js']
+                    'app/min.js': ['app/js/vendor/modernizr-2.6.2.min.js',
+                        'app/js/vendor/angular.min.js', 'app/js/vendor/angular-ui-bootstrap.js', 'app/js/vendor/angular.route.js', 'app/js/**/*.js']
                 }
 
             }

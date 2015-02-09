@@ -21,56 +21,13 @@
 
 
 
+        <div class="container">
+            <div class="row" ng-view>
 
-        <section ng-controller="ListController" class="col-md-12">
-            <form action="#" class="row">
-                <div class="form-group">
-                    <div class="input-group col-md-4">
-                        <input type="text" class="form-control" placeholder="{{placeholder}}" ng-model="searchProgram">
-                    </div>
-                </div>
-            </form>
+            </div>
+        </div>
 
-            <table class="table table-bordered table-striped">
-                <colgroup>
-                    <col width="33.333%">
-                    <col width="33.333%">
-                    <col width="33.333%">
-                </colgroup>
 
-                <thead>
-                <tr>
-                    <td>
-                        <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse">
-                            Titre
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#" ng-click="sortType = 'program'; sortReverse = !sortReverse">
-                            Programme
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#" ng-click="sortType = 'created'; sortReverse = !sortReverse">
-                            Date de création
-                        </a>
-                    </td>
-                </tr>
-                </thead>
-
-                <tbody>
-                <tr ng-repeat="program in programs | orderBy:sortType:sortReverse | filter:searchProgram | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
-                    <td>{{ program.title }}</td>
-                    <td>{{ program.program }}</td>
-                    <td>{{ program.created |date : 'dd MM yyyy H:mm:ss'}}</td>
-                </tr>
-                </tbody>
-
-            </table>
-
-            <pagination data-boundary-links="true" data-num-pages="noOfPages" data-current-page="currentPage" max-size="maxSize" class="pagination-small" data-previous-text="&laquo;" data-next-text="&raquo;"></pagination>
-
-        </section>
 
 
 
