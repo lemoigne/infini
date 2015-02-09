@@ -1,13 +1,24 @@
 <section class="col-md-12 programs">
     <form action="#">
-        <div class="form-group">
-            <div class="input-group col-md-4">
-                <input type="text" class="form-control" placeholder="{{placeholder}}" ng-model="searchProgram">
+        <div class="form-group row">
+            <div class="col-md-4">
+                <label for="search">Votre recherche</label>
+                <input type="text" id="search" name="search" class="form-control" placeholder="{{placeholder}}" ng-model="searchProgram">
+            </div>
+            <div class="col-md-4">
+                <label for="motClef">Mot clef programme</label>
+                <input type="text" id="motClef" name="motClef" class="form-control" placeholder="{{placeholderFilterProgram}}" ng-model="searchProgramFilter" ng-change="filterSearch();">
             </div>
         </div>
     </form>
 
-    <table class="table table-bordered table-striped">
+    <div ng-show="loader">
+        <span ng-hide="loaded">Chargement ...</span>
+        <span ng-show="loaded">Aucun résultat</span>
+    </div>
+
+
+    <table class="table table-bordered table-striped" ng-hide="loader">
         <colgroup>
             <col width="33.333%">
             <col width="33.333%">
@@ -17,17 +28,17 @@
         <thead>
         <tr>
             <td>
-                <a href="#/" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+                <a href="#/" ng-click="sortTitle(); sortReverse = !sortReverse">
                     Titre
                 </a>
             </td>
             <td>
-                <a href="#/" ng-click="sortType = 'program'; sortReverse = !sortReverse">
+                <a href="#/" ng-click="sortProgram(); sortReverse = !sortReverse">
                     Programme
                 </a>
             </td>
             <td>
-                <a href="#/" ng-click="sortType = 'created'; sortReverse = !sortReverse">
+                <a href="#/" ng-click="sortCreated(); sortReverse = !sortReverse">
                     Date de création
                 </a>
             </td>

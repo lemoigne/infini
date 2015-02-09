@@ -6,8 +6,17 @@ app.config(function($httpProvider, $routeProvider){
             templateUrl: 'partials/list.html',
             controller:'ListController',
             resolve: {
-                programs: function(ProgramFactory) {
-                    return ProgramFactory.find();
+                listDefault: function(ProgramFactory) {
+                    return ProgramFactory.default();
+                },
+                listTitle: function(ProgramFactory) {
+                    return ProgramFactory.title();
+                },
+                listProgram: function(ProgramFactory) {
+                    return ProgramFactory.program();
+                },
+                listCreated: function(ProgramFactory) {
+                    return ProgramFactory.created();
                 }
             }
         })
